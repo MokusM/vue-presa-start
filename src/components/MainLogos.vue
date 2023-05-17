@@ -1,7 +1,7 @@
 <template>
-	<img class="main-logo" src="@img/vichy.png" alt="" />
-	<img class="logo-brand logo-brand--left" src="@img/left.png" alt="" />
-	<img class="logo-brand logo-brand--right" src="@img/right.png" alt="" />
+	<img class="main-logo" src="@img/logo.svg" alt="" />
+	<img class="logo-brand logo-brand--left" src="@img/logo.svg" alt="" />
+	<img class="logo-brand logo-brand--right" src="@img/logo.svg" alt="" />
 </template>
 
 <script>
