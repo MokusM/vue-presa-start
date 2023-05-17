@@ -1,18 +1,16 @@
 <template>
-	<div class="slide">
-		<h1 ref="box">Slide 1</h1>
+	<div class="slide slide-1">
+		<h1>Slide 1</h1>
 	</div>
 </template>
 
 <script>
-import { ref, onMounted } from 'vue';
+import { onMounted } from 'vue';
 import { gsap } from 'gsap';
 export default {
 	name: 'slide-1',
 	emits: ['show'],
 	setup(props, { emit }) {
-		const box = ref();
-
 		const done = () => {
 			setTimeout(() => {
 				emit('show');
@@ -22,13 +20,9 @@ export default {
 		onMounted(() => {
 			gsap
 				.timeline({ onComplete: () => done() })
-				.from(box.value, { y: -200, duration: 1 })
-				.to(box.value, { rotation: '+=360', duration: 1 });
+				.from('h1', { y: -200, duration: 1 })
+				.to('h1', { rotation: '+=360', duration: 1 });
 		});
-
-		return {
-			box,
-		};
 	},
 };
 </script>
