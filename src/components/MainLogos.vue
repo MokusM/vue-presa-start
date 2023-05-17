@@ -21,9 +21,9 @@ export default {
 		const mainLogo = ref('dark');
 		const leftLogo = ref('dark');
 		const rightLogo = ref('dark');
-		const mainLogoWhite = [2];
-		const leftLogoWhite = [2];
-		const rightLogoWhite = [2];
+		const mainLogoWhite = [5];
+		const leftLogoWhite = [5];
+		const rightLogoWhite = [5];
 
 		mainLogo.value = mainLogoWhite.includes(props.slide) ? 'white' : 'dark';
 		leftLogo.value = leftLogoWhite.includes(props.slide) ? 'white' : 'dark';

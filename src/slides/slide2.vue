@@ -29,6 +29,6 @@ export default {
 
 <style lang="scss" scoped>
 .slide-2 {
-	background: #000;
+	//background: #000;
 }
 </style>

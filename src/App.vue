@@ -26,7 +26,7 @@
 			</transition>
 		</div>
 		<RotateDevice />
-		<MainLogos :slide="currentSlide" v-if="!warningScreen" :class="`slide-${currentSlide}`" />
+		<MainLogos :slide="currentSlide" v-if="!warningScreen && !hideBtn" :class="`slide-${currentSlide}`" />
 	</div>
 </template>
 
@@ -159,5 +159,17 @@ export default {
 		transition: all 0.3s;
 		opacity: 0.6;
 	}
+}
+
+.list-move, /* apply transition to moving elements */
+.list-enter-active,
+.list-leave-active {
+	transition: all 0.5s ease;
+}
+
+.list-enter-from,
+.list-leave-to {
+	opacity: 0;
+	transform: translateX(30px);
 }
 </style>
