@@ -4,7 +4,7 @@
 		<scratch-img class="scratch-img" @finish="startAnim">
 			<img src="@img/rotate-device.png" alt="" />
 		</scratch-img>
-		<count-up :end-val="75" :duration="3" :delay="5000"></count-up>
+		<count-up :end-val="75" :duration="5" :delay="2" @finish="startAnim"></count-up>
 	</div>
 </template>
 
@@ -12,7 +12,7 @@
 import { onMounted } from 'vue';
 import { gsap } from 'gsap';
 import ScratchImg from '../components/ScratchImg.vue';
-import CountUp from 'vue-countup-v3';
+import CountUp from '../components/CountUp.vue';
 export default {
 	name: 'slide-1',
 	emits: ['show'],

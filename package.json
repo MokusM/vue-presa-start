@@ -13,8 +13,7 @@
     "core-js": "^3.8.3",
     "gsap": "^3.11.5",
     "jquery": "^3.7.0",
-    "vue": "^3.2.13",
-    "vue-countup-v3": "^1.1.0"
+    "vue": "^3.2.13"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",
