@@ -7,25 +7,45 @@
 <script>
 import { onMounted } from 'vue';
 import { gsap } from 'gsap';
+import $ from 'jquery';
+import 'jquery/dist/jquery.min.js';
 export default {
 	name: 'slide-3',
 	emits: ['show'],
-	setup(props, { emit }) {
-		const done = () => {
+	setup() {
+		const next_test = () => {
+			var id = $('#presentation', window.parent.document).attr('data-id');
+
+			var $url = 'https://www.dermaclub.com.ua/courses/send/presa';
+			var href = $('#presentation', window.parent.document).attr('data-href');
+			var $token = $('meta[name="csrf-token"]', window.parent.document).attr('content');
+			$.ajaxSetup({
+				headers: {
+					'X-CSRF-TOKEN': $token,
+				},
+			});
 			setTimeout(() => {
-				emit('show');
-			}, 200);
+				$.ajax({
+					type: 'POST',
+					url: $url,
+					data: { id: id },
+					success: function (data) {
+						if (data != false) {
+							parent.location.href = href;
+						}
+					},
+					error: function (data) {
+						console.log(data);
+					},
+				});
+			}, 5000);
 		};
 
 		onMounted(() => {
-			gsap
-				.timeline({ onComplete: () => done() })
-				.from('.box', { y: -200, duration: 1 })
-				.to('.box', { rotation: '+=360', duration: 1 });
+			gsap.timeline({ onComplete: () => next_test() }).to('.box', { opacity: 1, left: 0, duration: 1, stagger: 1 });
 		});
 	},
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped></style>
+<style lang="scss" scoped></style>

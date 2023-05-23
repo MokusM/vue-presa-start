@@ -50,24 +50,27 @@ export default {
 * {
 	color: #fff;
 }
+
 .main-logo {
 	position: absolute;
-	right: 5em;
+	right: 6em;
 	top: 5em;
-	width: 18em;
+	width: 27em;
 	pointer-events: none;
 }
 .logo-brand {
 	position: absolute;
 	pointer-events: none;
-	width: 10em;
+	z-index: 11;
 	&--left {
 		top: 5em;
 		left: 5em;
+		width: 18em;
 	}
 	&--right {
-		bottom: 5em;
-		right: 5em;
+		bottom: 2em;
+		right: 2em;
+		width: 18.2em;
 	}
 }
 </style>

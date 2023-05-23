@@ -26,7 +26,7 @@
 			</transition>
 		</div>
 		<RotateDevice />
-		<MainLogos :slide="currentSlide" v-if="!warningScreen && !hideBtn" :class="`slide-${currentSlide}`" />
+		<MainLogos :slide="currentSlide" v-if="!warningScreen" :class="`slide-${currentSlide}`" />
 	</div>
 </template>
 
@@ -51,6 +51,15 @@ export default {
 		const hideBtn = ref(true);
 		const slides = require.context('./slides', true, /[\w-]+\.vue$/);
 		const slidesCount = slides.keys().length;
+
+		const urlParams = new URLSearchParams(window.location.search);
+
+		const slideQueryParam = urlParams.get('slide');
+
+		if (slideQueryParam) {
+			warningScreen.value = false;
+			currentSlide.value = parseInt(slideQueryParam);
+		}
 
 		const nextSlide = () => {
 			currentSlide.value++;

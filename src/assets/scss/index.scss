@@ -206,3 +206,117 @@ body {
 html {
 	height: -webkit-fill-available;
 }
+.slide {
+	padding: 13.3em 13.7em 2em;
+	min-height: 100%;
+	margin: 0 auto;
+	position: relative;
+}
+
+.help-inf {
+	margin-top: 1em;
+	position: relative;
+	z-index: 3;
+	text-align: center;
+
+	color: #767171;
+}
+
+.help-inf span {
+	font-size: clamp(10px, 3em, 25px);
+	line-height: 1;
+}
+
+.hand {
+	position: absolute;
+	width: 4em;
+	height: 4em;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%) rotate(-25deg);
+}
+
+.hand:before {
+	content: '';
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-image: url(@img/hand-pointer.svg);
+	background-repeat: no-repeat;
+	background-size: contain;
+	animation: wobble-hor-top 2.5s 3s infinite both;
+	animation-delay: inherit;
+}
+
+.delay1 {
+	animation-delay: 1.2s;
+}
+
+.delay2 {
+	animation-delay: 2.5s;
+}
+
+.delay3 {
+	animation-delay: 4.5s;
+}
+
+@keyframes wobble-hor-top {
+	0%,
+	100% {
+		transform: translateX(0%);
+		transform-origin: left top;
+	}
+
+	15% {
+		transform: translateX(-7px) rotate(2deg);
+	}
+
+	30% {
+		transform: translateX(3px) rotate(-2deg);
+	}
+
+	45% {
+		transform: translateX(-3px) rotate(0.9deg);
+	}
+
+	60% {
+		transform: translateX(2px) rotate(-0.6deg);
+	}
+
+	75% {
+		transform: translateX(-1px) rotate(0.3deg);
+	}
+}
+
+.title {
+	border-left: 2.4em solid #008635;
+	padding-left: 5em;
+	span {
+		font-weight: 700;
+		font-size: 11.7em;
+		color: #000000;
+		position: relative;
+	}
+	small {
+		font-weight: 700;
+		font-size: 5.6em;
+		color: #000000;
+		display: block;
+		position: relative;
+	}
+}
+
+.note {
+	position: absolute;
+	bottom: 5.7em;
+	right: 26em;
+
+	span {
+		font-size: clamp(7px, 0.9em, 25px);
+		line-height: 1;
+		color: #212329;
+	}
+}
