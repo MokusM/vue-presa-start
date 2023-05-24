@@ -12,8 +12,9 @@ import 'jquery/dist/jquery.min.js';
 export default {
 	name: 'slide-3',
 	emits: ['show'],
-	setup() {
+	setup(props, { emit }) {
 		const next_test = () => {
+			emit('show');
 			var id = $('#presentation', window.parent.document).attr('data-id');
 
 			var $url = 'https://www.dermaclub.com.ua/courses/send/presa';

@@ -1,9 +1,9 @@
 <template>
-	<span class="count-up" ref="count">{{ endVal }}</span>
+	<span class="count-up" ref="count" v-html="endVal"></span>
 </template>
 
 <script>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, nextTick } from 'vue';
 import { gsap } from 'gsap';
 export default {
 	name: 'CountUp',
@@ -30,15 +30,17 @@ export default {
 		const count = ref(null);
 
 		onMounted(() => {
-			gsap.timeline({ onComplete: () => emit('finish') }).from(count.value, {
-				innerText: props.startVal,
-				snap: { innerText: 1 },
-				duration: props.duration,
-				delay: props.delay,
-				ease: 'linear',
-				onUpdate: () => {
-					count.value.innerHTML = count.value.innerText;
-				},
+			nextTick(() => {
+				gsap.timeline({ onComplete: () => emit('finish') }).from(count.value, {
+					innerText: props.startVal,
+					snap: { innerText: 1 },
+					duration: props.duration,
+					delay: props.delay,
+					ease: 'linear',
+					onUpdate: () => {
+						count.value.innerHTML = count.value.innerText;
+					},
+				});
 			});
 		});
 		return { count };

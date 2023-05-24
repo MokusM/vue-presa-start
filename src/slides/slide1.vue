@@ -32,10 +32,7 @@ export default {
 		};
 
 		onMounted(() => {
-			gsap
-				.timeline({ onComplete: () => done() })
-				.from('h1', { y: -200, duration: 1 })
-				.to('h1', { rotation: '+=360', duration: 1 });
+			gsap.timeline({ onComplete: () => done() }).from('h1', { x: -200, duration: 1 });
 		});
 
 		return {
@@ -48,6 +45,11 @@ export default {
 <style lang="scss" scoped>
 .slide-1 {
 	padding: 13em;
+
+	span,
+	h1 {
+		font-size: 9em;
+	}
 }
 .scratch-img {
 	width: 30em;

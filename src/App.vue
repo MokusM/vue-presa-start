@@ -47,7 +47,7 @@ export default {
 	setup() {
 		const currentSlide = ref(1);
 		const mainFontSize = ref(10);
-		const warningScreen = ref(false);
+		const warningScreen = ref(true);
 		const hideBtn = ref(true);
 		const slides = require.context('./slides', true, /[\w-]+\.vue$/);
 		const slidesCount = slides.keys().length;
