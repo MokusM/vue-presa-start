@@ -1,7 +1,4 @@
 <template>
-	{{ mainLogo }}
-	{{ rightLogo }}
-	{{ slide }}
 	<img class="main-logo" :src="require(`@img/logo-${mainLogo}.svg`)" alt="" />
 	<img class="logo-brand logo-brand--left" :src="require(`@img/left-${leftLogo}.png`)" alt="" />
 	<img class="logo-brand logo-brand--right" :src="require(`@img/right-${rightLogo}.png`)" alt="" />
@@ -45,7 +42,6 @@ export default {
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
 * {
 	color: #fff;
